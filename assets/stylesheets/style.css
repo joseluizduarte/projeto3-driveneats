@@ -106,4 +106,27 @@ footer {
     position: fixed;
     bottom: 0;
     left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    width: 364px;
+    height: 61px;
+    border-radius: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #FFFFFF;
+    padding: 0 75px;
+}
+
+.deactivated {
+    background-color: #CBCBCB;
+    font-weight: 400;
+}
+
+.activated {
+    background-color: #32B72F;
+    font-weight: 700;
 }
