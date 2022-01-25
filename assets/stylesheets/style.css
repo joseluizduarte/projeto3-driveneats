@@ -1,5 +1,5 @@
 * {
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
 
 header {
@@ -22,7 +22,6 @@ header h1 {
     color: #FFFFFF;
     font-size: 44px;
     font-weight: 400;
-    line-height: 55px;
     font-family: 'Righteous', cursive;
 }
 
@@ -30,15 +29,74 @@ header p {
     color: #FFFFFF;
     font-size: 18px;
     font-weight: 400;
-    line-height: 21px;
     font-family: 'Roboto', sans-serif;
 }
 
 main {
     height: 100vh;
     background-color: #E5E5E5;
-    padding-top: 92px;
+    padding-top: calc(92px + 31px);
     padding-bottom: 92px;
+}
+
+.row {
+    margin-left: 19px;
+}
+
+.row__title {
+    color: #333333;
+    font-size: 26px;
+    font-weight: 400;
+    font-family: 'Righteous', cursive;
+}
+
+.row__slide {
+    display: flex;
+    overflow-x: scroll;
+}
+
+.card {
+    margin-top: 17px;
+    margin-right: 16px;
+    height: 216px;
+    width: 172px;
+    background-color: #FFFFFF;
+    border-radius: 9px;
+    padding: 18px 14px 13px 14px;
+}
+
+.card__image {
+    height: 87px;
+    width: 144px;
+}
+
+.card__title {
+    margin-top: 8px;
+    color: #333333;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card__text {
+    margin-top: 4px;
+    width: 144px;
+    color: #A6A6A6;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card__price {
+    margin-top: 5px;
+    width: 144px;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    font-family: 'Roboto', sans-serif;
 }
 
 footer {
