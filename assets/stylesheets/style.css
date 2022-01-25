@@ -33,13 +33,13 @@ header p {
 }
 
 main {
-    height: 100vh;
     background-color: #E5E5E5;
-    padding-top: calc(92px + 31px);
-    padding-bottom: 92px;
+    padding-top: 96px;
+    padding-bottom: 108px;
 }
 
 .row {
+    margin-top: 27px;
     margin-left: 19px;
 }
 
