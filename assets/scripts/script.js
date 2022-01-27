@@ -69,28 +69,57 @@ function alterarBotaoDoFooter () {
 }
 
 // função para fechar o pedido
+let mensagem;
 function fecharPedido () {
+    let nome = prompt("Qual o seu nome?");
+    let endereco = prompt("Qual o seu endereço?");
     let prato = document.getElementById(`prato${pratoSelecionado}`);
-    let pratoNome = prato.getElementsByClassName("card__title")[0].innerText;
-    let pratoPreco = prato.getElementsByClassName("card__lastline__price")[0].innerText;
-    pratoPreco = pratoPreco.slice(3);
-    pratoPreco = pratoPreco.replace(",",".");
-    pratoPreco = parseFloat(pratoPreco);
+    var pratoNome = prato.getElementsByClassName("card__title")[0].innerText;
+    let pratoPrecoText = prato.getElementsByClassName("card__lastline__price")[0].innerText;
+    let pratoPrecoNumber = pratoPrecoText.slice(3);
+    pratoPrecoNumber = pratoPrecoNumber.replace(",",".");
+    pratoPrecoNumber = parseFloat(pratoPrecoNumber);
     let bebida = document.getElementById(`bebida${bebidaSelecionada}`);
-    let bebidaNome = bebida.getElementsByClassName("card__title")[0].innerText;
-    let bebidaPreco = bebida.getElementsByClassName("card__lastline__price")[0].innerText;
-    bebidaPreco = bebidaPreco.slice(3);
-    bebidaPreco = bebidaPreco.replace(",",".");
-    bebidaPreco = parseFloat(bebidaPreco);
+    var bebidaNome = bebida.getElementsByClassName("card__title")[0].innerText;
+    let bebidaPrecoText = bebida.getElementsByClassName("card__lastline__price")[0].innerText;
+    let bebidaPrecoNumber = bebidaPrecoText.slice(3);
+    bebidaPrecoNumber = bebidaPrecoNumber.replace(",",".");
+    bebidaPrecoNumber = parseFloat(bebidaPrecoNumber);
     let sobremesa = document.getElementById(`sobremesa${sobremesaSelecionada}`);
-    let sobremesaNome = sobremesa.getElementsByClassName("card__title")[0].innerText;
-    let sobremesaPreco = sobremesa.getElementsByClassName("card__lastline__price")[0].innerText;
-    sobremesaPreco = sobremesaPreco.slice(3);
-    sobremesaPreco = sobremesaPreco.replace(",",".");
-    sobremesaPreco = parseFloat(sobremesaPreco);
-    let valorTotal = pratoPreco + bebidaPreco + sobremesaPreco;
-    valorTotal = valorTotal.toFixed(2);
-    let mensagem = `Olá, gostaria de fazer o pedido:\n- Prato: ${pratoNome}\n\- Bebida: ${bebidaNome}\n\- Sobremesa: ${sobremesaNome}\n\- Total: R$ ${valorTotal}`;
+    var sobremesaNome = sobremesa.getElementsByClassName("card__title")[0].innerText;
+    let sobremesaPrecoText = sobremesa.getElementsByClassName("card__lastline__price")[0].innerText;
+    let sobremesaPrecoNumber = sobremesaPrecoText.slice(3);
+    sobremesaPrecoNumber = sobremesaPrecoNumber.replace(",",".");
+    sobremesaPrecoNumber = parseFloat(sobremesaPrecoNumber);
+    let valorTotalNumber = pratoPrecoNumber + bebidaPrecoNumber + sobremesaPrecoNumber;
+    valorTotalNumber = valorTotalNumber.toFixed(2);
+    var valorTotalText = String(valorTotalNumber);
+    valorTotalText = valorTotalText.replace(".",",");
+    valorTotalText = `R$ ${valorTotalText}`;
+    let popup = document.getElementsByClassName("popup")[0];
+    document.getElementById("popup__card__dish__name").innerText = pratoNome;
+    document.getElementById("popup__card__drink__name").innerText = bebidaNome;
+    document.getElementById("popup__card__dessert__name").innerText = sobremesaNome;
+    document.getElementById("popup__card__dish__price").innerText = pratoPrecoText;
+    document.getElementById("popup__card__drink__price").innerText = bebidaPrecoText;
+    document.getElementById("popup__card__dessert__price").innerText = sobremesaPrecoText;
+    document.getElementById("popup__card__total__price").innerText = valorTotalText;
+    popup.classList.toggle("popup--enabled");
+    mensagem = `Olá, gostaria de fazer o pedido:\n`;
+    mensagem += `- Prato: ${pratoNome}\n`;
+    mensagem += `- Bebida: ${bebidaNome}\n`;
+    mensagem += `- Sobremesa: ${sobremesaNome}\n`;
+    mensagem += `- Total: R$ ${valorTotalText}\n\n`;
+    mensagem += `Nome: ${nome}\n`;
+    mensagem += `Endereço: ${endereco}\n`;
+}
+
+function cancelarPedido () {
+    let popup = document.getElementsByClassName("popup")[0];
+    popup.classList.toggle("popup--enabled");
+}
+
+function confirmarPedido () {
     mensagem = encodeURIComponent(mensagem);
     let whatsappLink = `https://wa.me/5595981142025?text=${mensagem}`;
     window.location.replace(whatsappLink);

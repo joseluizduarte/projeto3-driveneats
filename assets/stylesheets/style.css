@@ -79,6 +79,7 @@ main {
 .card__image {
     height: 87px;
     width: 144px;
+    border-radius: 4px;
 }
 
 .card__title {
@@ -158,4 +159,90 @@ footer {
     background-color: #32B72F;
     font-weight: 700;
     border: none;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup--enabled {
+    display: flex;
+}
+
+.popup__card {
+    width: 377px;
+    height: 353px;
+    background-color: #50D074;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup__card__title, .popup__card__dish, .popup__card__drink, .popup__card__dessert, .popup__card__total {
+    display: flex;
+    justify-content: space-between;
+    width: 326px;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
+} 
+
+.popup__card__title {
+    justify-content: center;
+    font-weight: 700;
+    margin-top: 21px;
+}
+
+.popup__card__dish {
+    margin-top: 28px;
+}
+
+.popup__card__drink {
+    margin-top: 13px;
+}
+
+.popup__card__dessert {
+    margin-top: 13px;
+}
+
+.popup__card__total {
+    font-weight: 700;
+    margin-top: 13px;
+}
+
+.popup__card__confirm {
+    width: 329px;
+    height: 52px;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 100px;
+    color: #50D074;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 24px;
+}
+
+.popup__card__cancel {
+    width: 329px;
+    height: 52px;
+    background-color: #50D074;
+    border: none;
+    border-radius: 100px;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
 }
