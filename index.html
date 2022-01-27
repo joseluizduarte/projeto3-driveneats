@@ -23,69 +23,96 @@
             <section class="row">
                 <h2 class="row__title">Primeiro, seu prato</h2>
                 <div class="row__slide">
-                    <div class="card">
+                    <div class="card" id="prato1" onclick="selecionarPrato(1)">
                         <img src="assets/images/frango_yin_yang.png" class="card__image" />
                         <p class="card__title">Frango Yin Yang</p>
                         <p class="card__text">Um pouco de batata, um pouco de salada</p>
-                        <p class="card__price">R$ 14,90</p>
+                        <div class="card__lastline">
+                            <p class="card__lastline__price">R$ 14,90</p>
+                            <ion-icon name="checkmark-circle" class="card__lastline__icon"></ion-icon>
+                        </div>
                     </div>
-                    <div class="card">
+                    <div class="card" id="prato2" onclick="selecionarPrato(2)">
                         <img src="assets/images/frango_yin_yang.png" class="card__image" />
                         <p class="card__title">Frango Yin Yang</p>
                         <p class="card__text">Um pouco de batata, um pouco de salada</p>
-                        <p class="card__price">R$ 14,90</p>
+                        <div class="card__lastline">
+                            <p class="card__lastline__price">R$ 14,90</p>
+                            <ion-icon name="checkmark-circle" class="card__lastline__icon"></ion-icon>
+                        </div>
                     </div>
-                    <div class="card">
+                    <div class="card" id="prato3" onclick="selecionarPrato(3)">
                         <img src="assets/images/frango_yin_yang.png" class="card__image" />
                         <p class="card__title">Frango Yin Yang</p>
                         <p class="card__text">Um pouco de batata, um pouco de salada</p>
-                        <p class="card__price">R$ 14,90</p>
+                        <div class="card__lastline">
+                            <p class="card__lastline__price">R$ 14,90</p>
+                            <ion-icon name="checkmark-circle" class="card__lastline__icon"></ion-icon>
+                        </div>
                     </div>
                 </div>
             </section>
             <section class="row">
                 <h2 class="row__title">Agora, sua bebida</h2>
                 <div class="row__slide">
-                    <div class="card">
+                    <div class="card" id="bebida1" onclick="selecionarBebida(1)">
                         <img src="assets/images/coquinha_gelada.png" class="card__image" />
                         <p class="card__title">Coquinha gelada</p>
                         <p class="card__text">Lata 350ml</p>
-                        <p class="card__price">R$ 14,90</p>
+                        <div class="card__lastline">
+                            <p class="card__lastline__price">R$ 14,90</p>
+                            <ion-icon name="checkmark-circle" class="card__lastline__icon"></ion-icon>
+                        </div>
                     </div>
-                    <div class="card">
+                    <div class="card" id="bebida2" onclick="selecionarBebida(2)">
                         <img src="assets/images/coquinha_gelada.png" class="card__image" />
                         <p class="card__title">Coquinha gelada</p>
                         <p class="card__text">Lata 350ml</p>
-                        <p class="card__price">R$ 14,90</p>
+                        <div class="card__lastline">
+                            <p class="card__lastline__price">R$ 14,90</p>
+                            <ion-icon name="checkmark-circle" class="card__lastline__icon"></ion-icon>
+                        </div>
                     </div>
-                    <div class="card">
+                    <div class="card" id="bebida3" onclick="selecionarBebida(3)">
                         <img src="assets/images/coquinha_gelada.png" class="card__image" />
                         <p class="card__title">Coquinha gelada</p>
                         <p class="card__text">Lata 350ml</p>
-                        <p class="card__price">R$ 14,90</p>
+                        <div class="card__lastline">
+                            <p class="card__lastline__price">R$ 14,90</p>
+                            <ion-icon name="checkmark-circle" class="card__lastline__icon"></ion-icon>
+                        </div>
                     </div>
                 </div>
             </section>
             <section class="row">
                 <h2 class="row__title">Por fim, sua sobremesa</h2>
                 <div class="row__slide">
-                    <div class="card">
+                    <div class="card" id="sobremesa1" onclick="selecionarSobremesa(1)">
                         <img src="assets/images/pudim.png" class="card__image" />
                         <p class="card__title">Pudim</p>
                         <p class="card__text">Apenas pudim</p>
-                        <p class="card__price">R$ 14,90</p>
+                        <div class="card__lastline">
+                            <p class="card__lastline__price">R$ 14,90</p>
+                            <ion-icon name="checkmark-circle" class="card__lastline__icon"></ion-icon>
+                        </div>
                     </div>
-                    <div class="card">
+                    <div class="card" id="sobremesa2" onclick="selecionarSobremesa(2)">
                         <img src="assets/images/pudim.png" class="card__image" />
                         <p class="card__title">Pudim</p>
                         <p class="card__text">Apenas pudim</p>
-                        <p class="card__price">R$ 14,90</p>
+                        <div class="card__lastline">
+                            <p class="card__lastline__price">R$ 14,90</p>
+                            <ion-icon name="checkmark-circle" class="card__lastline__icon"></ion-icon>
+                        </div>
                     </div>
-                    <div class="card">
+                    <div class="card" id="sobremesa3" onclick="selecionarSobremesa(3)">
                         <img src="assets/images/pudim.png" class="card__image" />
                         <p class="card__title">Pudim</p>
                         <p class="card__text">Apenas pudim</p>
-                        <p class="card__price">R$ 14,90</p>
+                        <div class="card__lastline">
+                            <p class="card__lastline__price">R$ 14,90</p>
+                            <ion-icon name="checkmark-circle" class="card__lastline__icon"></ion-icon>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -95,5 +122,9 @@
             <button class="btn activated">Fechar pedido</button>
         </footer>
     </div>
+    
+    <script src="assets/scripts/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
