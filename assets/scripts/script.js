@@ -12,6 +12,7 @@ function selecionarPrato(itemSelecionado) {
     if (pratoSelecionado==0) {
         mudarEstiloDoCard(`prato${itemSelecionado}`); //muda o estilo do 1º card selecionado
         pratoSelecionado = itemSelecionado;
+        alterarBotaoDoFooter();
     }
     else if (itemSelecionado==pratoSelecionado) {
         return
@@ -28,6 +29,7 @@ function selecionarBebida(itemSelecionado) {
     if (bebidaSelecionada==0) {
         mudarEstiloDoCard(`bebida${itemSelecionado}`); //muda o estilo do 1º card selecionado
         bebidaSelecionada = itemSelecionado;
+        alterarBotaoDoFooter();
     }
     else if (itemSelecionado==bebidaSelecionada) {
         return
@@ -44,6 +46,7 @@ function selecionarSobremesa(itemSelecionado) {
     if (sobremesaSelecionada==0) {
         mudarEstiloDoCard(`sobremesa${itemSelecionado}`); //muda o estilo do 1º card selecionado
         sobremesaSelecionada = itemSelecionado;
+        alterarBotaoDoFooter();
     }
     else if (itemSelecionado==sobremesaSelecionada) {
         return
@@ -51,5 +54,16 @@ function selecionarSobremesa(itemSelecionado) {
         mudarEstiloDoCard(`sobremesa${sobremesaSelecionada}`); //muda o estilo do card selecionado anteriormente
         sobremesaSelecionada = itemSelecionado;
         mudarEstiloDoCard(`sobremesa${itemSelecionado}`); //muda o estilo do card atual
+    }
+}
+
+// função para alterar estado do botão do footer
+function alterarBotaoDoFooter () {
+    if (pratoSelecionado!=0 && bebidaSelecionada!=0 && sobremesaSelecionada!=0) {
+        let botaoDoFooter = document.getElementById("footer_button");
+        botaoDoFooter.classList.remove("btn--deactivated");
+        botaoDoFooter.classList.add("btn--activated");
+        botaoDoFooter.innerText = "Fechar pedido";
+        botaoDoFooter.removeAttribute("disabled");
     }
 }

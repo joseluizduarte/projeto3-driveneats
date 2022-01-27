@@ -148,12 +148,13 @@ footer {
     padding: 0 75px;
 }
 
-.deactivated {
+.btn--deactivated {
     background-color: #CBCBCB;
     font-weight: 400;
+    border: none;
 }
 
-.activated {
+.btn--activated {
     background-color: #32B72F;
     font-weight: 700;
     border: none;
