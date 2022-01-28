@@ -1,8 +1,8 @@
 // função para mudar o estilo dos cards
 function mudarEstiloDoCard(cardId) {
-    let card = document.getElementById(cardId);
+    let card = document.querySelector(`#${cardId}`);
     card.classList.toggle("card--selected");
-    let checkIcon = card.getElementsByTagName("ion-icon")[0];
+    let checkIcon = card.querySelector("ion-icon");
     checkIcon.classList.toggle("card__lastline__icon--selected");
 }
 
@@ -60,67 +60,80 @@ function selecionarSobremesa(itemSelecionado) {
 // função para alterar estado do botão do footer
 function alterarBotaoDoFooter () {
     if (pratoSelecionado!=0 && bebidaSelecionada!=0 && sobremesaSelecionada!=0) {
-        let botaoDoFooter = document.getElementById("footer_button");
-        botaoDoFooter.classList.remove("btn--deactivated");
-        botaoDoFooter.classList.add("btn--activated");
+        let botaoDoFooter = document.querySelector("footer .btn")
+        botaoDoFooter.classList.toggle("btn--enabled");
         botaoDoFooter.innerText = "Fechar pedido";
         botaoDoFooter.removeAttribute("disabled");
     }
 }
 
+
+// converter "R$ xx,xx" em xx.xx 
+function converterPrecoEmNumber(preco) {
+    let precoNumber = preco.slice(3).replace(",",".");
+    precoNumber = parseFloat(precoNumber);
+    return precoNumber;
+}
+
 // função para fechar o pedido
 let mensagem;
 function fecharPedido () {
+    // obter informações do usuário
     let nome = prompt("Qual o seu nome?");
     let endereco = prompt("Qual o seu endereço?");
-    let prato = document.getElementById(`prato${pratoSelecionado}`);
-    var pratoNome = prato.getElementsByClassName("card__title")[0].innerText;
-    let pratoPrecoText = prato.getElementsByClassName("card__lastline__price")[0].innerText;
-    let pratoPrecoNumber = pratoPrecoText.slice(3);
-    pratoPrecoNumber = pratoPrecoNumber.replace(",",".");
-    pratoPrecoNumber = parseFloat(pratoPrecoNumber);
-    let bebida = document.getElementById(`bebida${bebidaSelecionada}`);
-    var bebidaNome = bebida.getElementsByClassName("card__title")[0].innerText;
-    let bebidaPrecoText = bebida.getElementsByClassName("card__lastline__price")[0].innerText;
-    let bebidaPrecoNumber = bebidaPrecoText.slice(3);
-    bebidaPrecoNumber = bebidaPrecoNumber.replace(",",".");
-    bebidaPrecoNumber = parseFloat(bebidaPrecoNumber);
-    let sobremesa = document.getElementById(`sobremesa${sobremesaSelecionada}`);
-    var sobremesaNome = sobremesa.getElementsByClassName("card__title")[0].innerText;
-    let sobremesaPrecoText = sobremesa.getElementsByClassName("card__lastline__price")[0].innerText;
-    let sobremesaPrecoNumber = sobremesaPrecoText.slice(3);
-    sobremesaPrecoNumber = sobremesaPrecoNumber.replace(",",".");
-    sobremesaPrecoNumber = parseFloat(sobremesaPrecoNumber);
-    let valorTotalNumber = pratoPrecoNumber + bebidaPrecoNumber + sobremesaPrecoNumber;
-    valorTotalNumber = valorTotalNumber.toFixed(2);
-    var valorTotalText = String(valorTotalNumber);
-    valorTotalText = valorTotalText.replace(".",",");
-    valorTotalText = `R$ ${valorTotalText}`;
-    let popup = document.getElementsByClassName("popup")[0];
-    document.getElementById("popup__card__dish__name").innerText = pratoNome;
-    document.getElementById("popup__card__drink__name").innerText = bebidaNome;
-    document.getElementById("popup__card__dessert__name").innerText = sobremesaNome;
-    document.getElementById("popup__card__dish__price").innerText = pratoPrecoText;
-    document.getElementById("popup__card__drink__price").innerText = bebidaPrecoText;
-    document.getElementById("popup__card__dessert__price").innerText = sobremesaPrecoText;
-    document.getElementById("popup__card__total__price").innerText = valorTotalText;
+
+    // obter informações do prato selecionado
+    let prato = document.querySelector(`#prato${pratoSelecionado}`);
+    let pratoNome = prato.querySelector(".card__title").innerText;
+    let pratoPreco = prato.querySelector(".card__lastline__price").innerText;
+    
+    // obter informações da bebida selecionada
+    let bebida = document.querySelector(`#bebida${bebidaSelecionada}`);
+    let bebidaNome = bebida.querySelector(".card__title").innerText;
+    let bebidaPreco = bebida.querySelector(".card__lastline__price").innerText;
+    
+    // obter informações da sobremesa selecionada
+    let sobremesa = document.querySelector(`#sobremesa${sobremesaSelecionada}`);
+    let sobremesaNome = sobremesa.querySelector(".card__title").innerText;
+    let sobremesaPreco = sobremesa.querySelector(".card__lastline__price").innerText;
+    
+    // calcular valor total
+    let valorTotal = 0;
+    valorTotal += converterPrecoEmNumber(pratoPreco);
+    valorTotal += converterPrecoEmNumber(bebidaPreco);
+    valorTotal += converterPrecoEmNumber(sobremesaPreco);
+    valorTotal = valorTotal.toFixed(2);
+
+    // editar e ativar popup de confirmação
+    let popup = document.querySelector(".popup");
+    document.querySelector("#popup__card__dish__name").innerText = pratoNome;
+    document.querySelector("#popup__card__drink__name").innerText = bebidaNome;
+    document.querySelector("#popup__card__dessert__name").innerText = sobremesaNome;
+    document.querySelector("#popup__card__dish__price").innerText = pratoPreco;
+    document.querySelector("#popup__card__drink__price").innerText = bebidaPreco;
+    document.querySelector("#popup__card__dessert__price").innerText = sobremesaPreco;
+    document.querySelector("#popup__card__total__price").innerText = `R$ ${valorTotal}`.replace(".",",");
     popup.classList.toggle("popup--enabled");
+
+    // editar mensagem
     mensagem = `Olá, gostaria de fazer o pedido:\n`;
     mensagem += `- Prato: ${pratoNome}\n`;
     mensagem += `- Bebida: ${bebidaNome}\n`;
     mensagem += `- Sobremesa: ${sobremesaNome}\n`;
-    mensagem += `- Total: R$ ${valorTotalText}\n\n`;
+    mensagem += `- Total: R$ ${valorTotal}\n\n`;
     mensagem += `Nome: ${nome}\n`;
     mensagem += `Endereço: ${endereco}\n`;
 }
 
+// função para o botão: "Cancelar"
 function cancelarPedido () {
     let popup = document.getElementsByClassName("popup")[0];
     popup.classList.toggle("popup--enabled");
 }
 
+// função para o botão: "Tudo certo, pode pedir!" 
 function confirmarPedido () {
     mensagem = encodeURIComponent(mensagem);
     let whatsappLink = `https://wa.me/5595981142025?text=${mensagem}`;
-    window.location.replace(whatsappLink);
+    window.open(whatsappLink,"_blank");
 }
