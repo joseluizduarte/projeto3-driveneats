@@ -120,7 +120,7 @@ function fecharPedido () {
     mensagem += `- Prato: ${pratoNome}\n`;
     mensagem += `- Bebida: ${bebidaNome}\n`;
     mensagem += `- Sobremesa: ${sobremesaNome}\n`;
-    mensagem += `- Total: R$ ${valorTotal}\n\n`;
+    mensagem += `- Total: R$ ${valorTotal}\n\n`.replace(".",",");
     mensagem += `Nome: ${nome}\n`;
     mensagem += `Endereço: ${endereco}`;
 }
