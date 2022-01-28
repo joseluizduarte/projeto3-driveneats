@@ -116,13 +116,14 @@ function fecharPedido () {
     popup.classList.toggle("popup--enabled");
 
     // editar mensagem
+    console.log(valorTotal);
     mensagem = `Olá, gostaria de fazer o pedido:\n`;
     mensagem += `- Prato: ${pratoNome}\n`;
     mensagem += `- Bebida: ${bebidaNome}\n`;
     mensagem += `- Sobremesa: ${sobremesaNome}\n`;
     mensagem += `- Total: R$ ${valorTotal}\n\n`;
     mensagem += `Nome: ${nome}\n`;
-    mensagem += `Endereço: ${endereco}\n`;
+    mensagem += `Endereço: ${endereco}`;
 }
 
 // função para o botão: "Cancelar"
