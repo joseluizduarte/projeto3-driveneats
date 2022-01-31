@@ -7,7 +7,7 @@ function mudarEstiloDoCard(cardId) {
 }
 
 // variável e função para os pratos
-var pratoSelecionado = 0;
+let pratoSelecionado = 0;
 function selecionarPrato(itemSelecionado) {
     if (pratoSelecionado==0) {
         mudarEstiloDoCard(`prato${itemSelecionado}`); //muda o estilo do 1º card selecionado
@@ -24,7 +24,7 @@ function selecionarPrato(itemSelecionado) {
 }
 
 // variável e função para as bebidas
-var bebidaSelecionada = 0;
+let bebidaSelecionada = 0;
 function selecionarBebida(itemSelecionado) {
     if (bebidaSelecionada==0) {
         mudarEstiloDoCard(`bebida${itemSelecionado}`); //muda o estilo do 1º card selecionado
@@ -41,7 +41,7 @@ function selecionarBebida(itemSelecionado) {
 }
 
 // variável e função para as sobremesas
-var sobremesaSelecionada = 0;
+let sobremesaSelecionada = 0;
 function selecionarSobremesa(itemSelecionado) {
     if (sobremesaSelecionada==0) {
         mudarEstiloDoCard(`sobremesa${itemSelecionado}`); //muda o estilo do 1º card selecionado
